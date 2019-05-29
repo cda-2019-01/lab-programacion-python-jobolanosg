@@ -16,3 +16,19 @@
 ##    ('9', ['A', 'B', 'E', 'C'])
 ##
 ##
+file = open('data.csv', 'r').readlines()
+file = [row.replace('\t', ' ') for row in file]
+file = [row.replace('\n', '') for row in file]
+file = [row.split(' ') for row in file]
+
+temp1 = file
+temp = {}
+
+for x in temp1:
+	temp[x[1]] = []
+
+for x in temp1:
+	temp[x[1]].append(x[0])
+
+for y in sorted(temp.items()):
+	print(y)
